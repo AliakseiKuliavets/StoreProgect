@@ -11,7 +11,7 @@ import java.util.Objects;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Supplier {
-    private int supplierID;
+    private int supplierId;
     private String supplierName;
     private int deliveryNumber;
     private Map<Product, Integer> productCount;
@@ -22,18 +22,18 @@ public class Supplier {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Supplier supplier = (Supplier) o;
-        return supplierID == supplier.supplierID;
+        return supplierId == supplier.supplierId;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(supplierID);
+        return Objects.hash(supplierId);
     }
 
     @Override
     public String toString() {
         return "Supplier{" +
-                "supplierID=" + supplierID +
+                "supplierID=" + supplierId +
                 ", supplierName='" + supplierName + '\'' +
                 ", deliveryNumber=" + deliveryNumber +
                 ", productCount=" + productCount +

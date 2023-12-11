@@ -12,8 +12,8 @@ import java.util.Objects;
 public class ClientDB {
     private String firstName;
     private String lastName;
-    private int PhoneNumber;
-    private int cardID;
+    private int phoneNumber;
+    private int cardId;
     private int productDiscount;
 
     @Override
@@ -21,7 +21,7 @@ public class ClientDB {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ClientDB clientDB = (ClientDB) o;
-        return PhoneNumber == clientDB.PhoneNumber && cardID == clientDB.cardID
+        return phoneNumber == clientDB.phoneNumber && cardId == clientDB.cardId
                 && productDiscount == clientDB.productDiscount
                 && Objects.equals(firstName, clientDB.firstName)
                 && Objects.equals(lastName, clientDB.lastName);
@@ -29,7 +29,7 @@ public class ClientDB {
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, lastName, PhoneNumber, cardID, productDiscount);
+        return Objects.hash(firstName, lastName, phoneNumber, cardId, productDiscount);
     }
 
     @Override
@@ -37,8 +37,8 @@ public class ClientDB {
         return "ClientDB{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", PhoneNumber=" + PhoneNumber +
-                ", cardID=" + cardID +
+                ", PhoneNumber=" + phoneNumber +
+                ", cardID=" + cardId +
                 ", productDiscount=" + productDiscount +
                 '}';
     }

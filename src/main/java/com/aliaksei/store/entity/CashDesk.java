@@ -14,7 +14,7 @@ public class CashDesk {
     private Product product;
     private Client client;
     private Hall hall;
-    private Product productDatabase;
+    private Product productDB;
 
     @Override
     public boolean equals(Object o) {
@@ -36,7 +36,7 @@ public class CashDesk {
                 ", product=" + product +
                 ", client=" + client +
                 ", hall=" + hall +
-                ", productDatabase=" + productDatabase +
+                ", productDatabase=" + productDB +
                 '}';
     }
 }
