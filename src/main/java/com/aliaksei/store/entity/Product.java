@@ -1,9 +1,9 @@
 package com.aliaksei.store.entity;
 
-import com.aliaksei.store.enums.ProductType;
-import lombok.AllArgsConstructor;
+import com.aliaksei.store.entity.enums.ProductType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 
 import java.util.Date;
 import java.util.Objects;

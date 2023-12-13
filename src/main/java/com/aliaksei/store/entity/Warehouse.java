@@ -1,15 +1,15 @@
 package com.aliaksei.store.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 
 import java.util.Map;
 import java.util.Objects;
 
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class Warehouse {
     private int warehouseId;
     private Map<Product, Integer> productCount;

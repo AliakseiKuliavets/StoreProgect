@@ -1,4 +1,4 @@
-package com.aliaksei.store.enums;
+package com.aliaksei.store.entity.enums;
 
 public enum ProductType {
     TYPE_PER_PIECE,

@@ -1,10 +1,12 @@
 # Offline Store Management
 
-This project is designed for efficient management of various aspects of an offline store similar to Lidl or Kaufland. It is developed using Java and the Spring framework with a MySQL database.
+This project is designed for efficient management of various aspects of an offline store similar to Lidl or Kaufland. 
+It is developed using Java and the Spring framework with a MySQL database.
 
 ## Project Description
 
-The project aims to effectively manage all aspects of an offline store, including product inventory, interactions with suppliers, warehouse stock tracking, cashier transactions, and loyalty programs for regular customers.
+The project aims to effectively manage all aspects of an offline store, including product inventory, interactions with 
+suppliers, warehouse stock tracking, cashier transactions, and loyalty programs for regular customers.
 
 ## Database Structure
 
