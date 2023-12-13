@@ -5,40 +5,37 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
-import java.util.Date;
+import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductDB {
-    private int productId;
-    private Date expiryDate;
-    private double productCost;
-    private int productDiscount;
-    private int productQuantity;
+    private int productDbId;
+    private Map<Integer, List<Product>> sortProductDeliveryNumber;
+    private Map<Product, Integer> productCount;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ProductDB productDB = (ProductDB) o;
-        return productId == productDB.productId;
+        return productDbId == productDB.productDbId;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(productId);
+        return Objects.hash(productDbId);
     }
 
     @Override
     public String toString() {
         return "ProductDB{" +
-                "productId=" + productId +
-                ", expiryDate=" + expiryDate +
-                ", productCost=" + productCost +
-                ", productDiscount=" + productDiscount +
-                ", productQuantity=" + productQuantity +
+                "productDbId=" + productDbId +
+                ", integerListMap=" + sortProductDeliveryNumber +
+                ", productCount=" + productCount +
                 '}';
     }
 }

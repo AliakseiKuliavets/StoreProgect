@@ -1,6 +1,6 @@
 # Offline Store Management
 
-This project is designed for efficient management of various aspects of an offline store similar to Lidl or Kaufland. 
+This project is designed for efficient management of various aspects of an offline store similar to Lidl or Kaufland.
 It is developed using Java and the Spring framework with a MySQL database.
 
 ## Project Description
@@ -11,74 +11,64 @@ suppliers, warehouse stock tracking, cashier transactions, and loyalty programs 
 ## Database Structure
 
 ### Product
-
-- **Product ID (productid):** Unique identifier for the product (int)
-- **Product Name (productName):** Name of the product (String)
-- **Weight of the Product (weightProduct):** Weight of the product (double)
-- **Product Cost (productCost):** Cost of the product (double)
-- **Product Discount (productDiscount):** Discount on the product (int)
-- **Expiry Date (expiryDate):** Expiry date of the product (Date)
-- **Delivery Number (deliveryNumber):** Delivery number of the product (int)
-- **Supplier (supplier):** Foreign key reference to the Supplier entity (Supplier)
-- **Product Type (productType):** Type of the product (ProductType)
+- **Product ID (`productID`):** Unique identifier for the product (INT).
+- **Product Name (`productName`):** Name of the product (VARCHAR(255)).
+- **Weight of Product (`weightProduct`):** Weight of the product (DOUBLE).
+- **Cost of Product (`productCost`):** Cost of the product (DOUBLE).
+- **Discount on Product (`productDiscount`):** Discount on the product (INT).
+- **Expiry Date (`expiryDate`):** Expiry date of the product (DATE).
+- **Delivery Number (`deliveryNumber`):** Delivery number associated with the product (INT).
+- **Supplier ID (`supplierID`):** Foreign key referencing `Supplier` table (INT).
+- **Product Type (`productType`):** Type of the product (VARCHAR(255)).
 
 ### Warehouse
-
-- **Warehouse ID (warehouseId):** Unique identifier for the warehouse (int)
-- **Product Count (productCount):** Map of products with their quantities (Map<Product,Integer>)
-- **Link to Product Database (productDB):** Foreign key reference to the Product Database entity (ProductDB)
-- **Link to Hall (hall):** Foreign key reference to the Hall entity (Hall)
+- **Warehouse ID (`warehouseID`):** Unique identifier for the warehouse (INT).
+- **Product Database ID (`productDB`):** Foreign key referencing `ProductDatabase` table (INT).
+- **Hall ID (`hallID`):** Foreign key referencing `Hall` table (INT).
 
 ### Supplier
-
-- **Supplier ID (supplierId):** Unique identifier for the supplier (int)
-- **Supplier Name (supplierName):** Name of the supplier (String)
-- **Delivery Number (deliveryNumber):** Delivery number (int)
-- **Product Count (productCount):** Map of products with their quantities (Map<Product, Integer>)
-- **Link to Warehouse (warehouse):** Foreign key reference to the Warehouse entity (Warehouse)
+- **Supplier ID (`supplierID`):** Unique identifier for the supplier (INT).
+- **Supplier Name (`supplierName`):** Name of the supplier (VARCHAR(255)).
+- **Delivery Number (`deliveryNumber`):** Delivery number (INT).
+- **Warehouse ID (`warehouseID`):** Foreign key referencing `Warehouse` table (INT).
 
 ### Hall
-
-- **Hall ID (hallId):** Unique identifier for the hall (int)
-- **Link to Warehouse (warehouse):** Foreign key reference to the Warehouse entity (Warehouse)
-- **Link to Cash Desk (cashDesk):** Foreign key reference to the Cash Desk entity (CashDesk)
-- **Link to Product (product):** Foreign key reference to the Product entity (Product)
+- **Hall ID (`hallID`):** Unique identifier for the hall (INT).
+- **Warehouse ID (`warehouseID`):** Foreign key referencing `Warehouse` table (INT).
+- **Cash Desk ID (`cashDeskID`):** Foreign key referencing `CashDesk` table (INT).
+- **Product ID (`productID`):** Foreign key referencing `Product` table (INT).
 
 ### Cash Desk
-
-- **Cashier ID (cashierId):** Unique identifier for the cash desk (int)
-- **Link to Product (product):** Foreign key reference to the Product entity (Product)
-- **Link to Client (client):** Foreign key reference to the Client entity (Client)
-- **Link to Hall (hall):** Foreign key reference to the Hall entity (Hall)
-- **Link to Product Database (productDB):** Foreign key reference to the Product Database entity (Product)
+- **Cashier ID (`cashierID`):** Unique identifier for the cashier (INT).
+- **Product ID (`productID`):** Foreign key referencing `Product` table (INT).
+- **Client ID (`clientID`):** Foreign key referencing `Client` table (INT).
+- **Hall ID (`hallID`):** Foreign key referencing `Hall` table (INT).
+- **Product Database ID (`productDB`):** Foreign key referencing `ProductDatabase` table (INT).
 
 ### Client
-
-- **Client ID (clientId):** Unique identifier for the client (int)
-- **Product List (productList):** Map of products with their quantities (Map<Product, Integer>)
-- **Club Membership Status (isClubMember):** Whether the client is a club member (boolean)
-- **Member Card ID (memberCard):** Foreign key reference to the Member Card entity (MemberCard)
+- **Client ID (`clientID`):** Unique identifier for the client (INT).
+- **Club Member Status (`isClubMember`):** Boolean indicating if the client is a club member (BOOLEAN).
+- **Member Card ID (`memberCardID`):** Foreign key referencing `MemberCard` table (INT).
 
 ### Member Card
-
-- **Card ID (cardId):** Unique identifier for the member card (int)
-- **Link to Client Database (clientDB):** Foreign key reference to the Client Database entity (ClientDB)
+- **Card ID (`cardID`):** Unique identifier for the member card (INT).
+- **Client Database ID (`clientDB`):** Foreign key referencing `ClientDatabase` table (INT).
 
 ### Client Database
-
-- **First Name (firstName):** Client's first name (String)
-- **Last Name (lastName):** Client's last name (String)
-- **Phone Number (phoneNumber):** Client's phone number (int)
-- **Card ID (cardId):** Client's card number (int)
-- **Product Discount (productDiscount):** Discount on products for the client (int)
+- **Client ID (`clientID`):** Unique identifier for the client in the database (INT).
+- **First Name (`firstName`):** First name of the client (VARCHAR(255)).
+- **Last Name (`lastName`):** Last name of the client (VARCHAR(255)).
+- **Phone Number (`phoneNumber`):** Phone number of the client (LONG).
+- **Card ID (`cardID`):** Foreign key referencing `MemberCard` table (INT).
+- **Product Discount (`productDiscount`):** Discount offered to the client (INT).
 
 ### Product Database
+- **Product Database ID (`productDbId`):** Unique identifier for the product database (INT).
 
-- **Product ID (productid):** Unique identifier for the product (int)
-- **Expiry Date of the Product (expiryDate):** Expiry date of the product (Date)
-- **Cost of the Product (productCost):** Cost of the product (double)
-- **Discount on the Product (productDiscount):** Discount on the product (int)
-- **Quantity of the Product (productQuantity):** Quantity of the product (int)
+### Product Count
+- **Product Database ID (`productDbId`):** Foreign key referencing `ProductDatabase` table (INT).
+- **Product ID (`productId`):** Foreign key referencing `Product` table (INT).
+- **Count (`count`):** The count of the product (INT).
 
 ## Usage
 
@@ -90,3 +80,4 @@ suppliers, warehouse stock tracking, cashier transactions, and loyalty programs 
 ## Note
 
 This project is developed to enhance customer service and optimize resource management in an offline store.
+
