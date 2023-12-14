@@ -20,7 +20,7 @@ public class ClientDB {
 
     @Id
     @Column(name = "client_db_id")
-    private UUID clientDBId;
+    private int clientDBId;
 
     @Column(name = "client_first_name")
     private String firstName;
@@ -31,8 +31,8 @@ public class ClientDB {
     @Column(name = "client_phone_number")
     private String phoneNumber;
 
-    @Column(name = "card_id")
-    private UUID cardId;
+    @Column(name = "member_card_id")
+    private UUID memberCardId;
 
     @Column(name = "client_product_discount")
     private int clientProductDiscount;
@@ -57,7 +57,7 @@ public class ClientDB {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                ", cardId=" + cardId +
+                ", memberCardId=" + memberCardId +
                 ", clientProductDiscount=" + clientProductDiscount +
                 '}';
     }

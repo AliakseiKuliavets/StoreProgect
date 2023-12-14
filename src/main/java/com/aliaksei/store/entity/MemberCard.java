@@ -23,7 +23,7 @@ public class MemberCard {
     private UUID cardId;
 
     @Column(name = "client_db_id")
-    private UUID clientDBId;
+    private int clientDBId;
 
     @Override
     public boolean equals(Object o) {

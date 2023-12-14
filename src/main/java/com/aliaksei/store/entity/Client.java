@@ -19,10 +19,7 @@ public class Client {
 
     @Id
     @Column(name = "client_id")
-    private UUID clientId;
-
-    @Column(name = "product_id")
-    private UUID productId;
+    private int clientId;
 
     @Column(name = "member_card_id")
     private UUID memberCardId;
@@ -50,8 +47,6 @@ public class Client {
     @Override
     public String toString() {
         return "Client{" +
-                "clientId=" + clientId +
-                ", productId=" + productId +
                 ", memberCardId=" + memberCardId +
                 ", isClubMember=" + isClubMember +
                 '}';

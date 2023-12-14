@@ -1,13 +1,11 @@
 package com.aliaksei.store.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -23,6 +21,9 @@ public class Warehouse {
 
     @Column(name = "hall_id")
     private int hallId;
+
+    @OneToMany(mappedBy = "warehouse", targetEntity = Product.class)
+    private List<Product> products;
 
     @Override
     public boolean equals(Object o) {

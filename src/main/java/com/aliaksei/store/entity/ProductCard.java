@@ -15,9 +15,12 @@ import java.util.List;
 public class ProductCard {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "card_id")
-    private int cardId;
+    private int productCardId;
 
-    @OneToMany(mappedBy = "productCard", targetEntity = Product.class)
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "product_id")
     private List<Product> products;
 }
