@@ -2,7 +2,7 @@ spring:
   main:
     banner-mode: off
 
-#  datasource:
-#    url: jdbc:Store:thin:@localhost:1521:storedb
-#    username: ANONYMOUS
-#    password: A1
+  datasource:
+    url: jdbc:mysql://localhost:3306/store
+    username: root
+    password:

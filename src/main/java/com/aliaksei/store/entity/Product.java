@@ -1,27 +1,48 @@
 package com.aliaksei.store.entity;
 
-import com.aliaksei.store.entity.enums.ProductType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
 import java.util.Date;
 import java.util.Objects;
+import java.util.UUID;
 
+@Entity
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "product")
 public class Product {
 
-    private int productId;
+    @Id
+    @Column(name = "product_id")
+    private UUID productId;
+
+    @Column(name = "product_name")
     private String productName;
+
+    @Column(name = "product_weight")
     private double weightProduct;
+
+    @Column(name = "product_cost")
     private double productCost;
+
+    @Column(name = "product_discount")
     private int productDiscount;
+
+    @Column(name = "product_expity_date")
     private Date expityDate;
+
+    @Column(name = "product_delivery_number")
     private int deliveryNumber;
-    private Supplier supplier;
-    private ProductType productType;
+
+    @Column(name = "supplier_id")
+    private UUID supplierId;
 
     @Override
     public boolean equals(Object o) {
@@ -46,8 +67,7 @@ public class Product {
                 ", productDiscount=" + productDiscount +
                 ", expityDate=" + expityDate +
                 ", deliveryNumber=" + deliveryNumber +
-                ", supplier=" + supplier +
-                ", productType=" + productType +
+                ", supplierId=" + supplierId +
                 '}';
     }
 }

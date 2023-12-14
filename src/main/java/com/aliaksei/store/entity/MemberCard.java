@@ -1,17 +1,29 @@
 package com.aliaksei.store.entity;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
 import java.util.Objects;
+import java.util.UUID;
 
+@Entity
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "member_card")
 public class MemberCard {
-    private int cardId;
-    private ClientDB clientDB;
+
+    @Id
+    @Column(name = "member_card_id")
+    private UUID cardId;
+
+    @Column(name = "client_db_id")
+    private UUID clientDBId;
 
     @Override
     public boolean equals(Object o) {
@@ -30,7 +42,7 @@ public class MemberCard {
     public String toString() {
         return "MemberCard{" +
                 "cardId=" + cardId +
-                ", clientDB=" + clientDB +
+                ", clientDBId=" + clientDBId +
                 '}';
     }
 }

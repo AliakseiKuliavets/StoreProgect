@@ -1,21 +1,33 @@
 package com.aliaksei.store.entity;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
-import java.util.Map;
-import java.util.Objects;
 
+import java.util.Objects;
+import java.util.UUID;
+
+@Entity
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "supplier")
 public class Supplier {
-    private int supplierId;
+
+    @Id
+    @Column(name = "supplier_id")
+    private UUID supplierId;
+
+    @Column(name = "supplier_name")
     private String supplierName;
-    private int deliveryNumber;
-    private Map<Product, Integer> productCount;
-    private Warehouse warehouse;
+
+    @Column(name = "warehouse_id")
+    private int warehouseId;
 
     @Override
     public boolean equals(Object o) {
@@ -33,11 +45,9 @@ public class Supplier {
     @Override
     public String toString() {
         return "Supplier{" +
-                "supplierID=" + supplierId +
+                "supplierId=" + supplierId +
                 ", supplierName='" + supplierName + '\'' +
-                ", deliveryNumber=" + deliveryNumber +
-                ", productCount=" + productCount +
-                ", warehouse=" + warehouse +
+                ", warehouseId=" + warehouseId +
                 '}';
     }
 }
