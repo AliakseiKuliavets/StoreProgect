@@ -15,7 +15,6 @@ import java.util.List;
 public class ProductCard {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "card_id")
     private int productCardId;
 
