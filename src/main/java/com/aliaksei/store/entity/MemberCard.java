@@ -8,7 +8,6 @@ import lombok.AllArgsConstructor;
 import java.util.Objects;
 import java.util.UUID;
 
-import static jakarta.persistence.CascadeType.*;
 
 @Entity
 @Getter
@@ -21,8 +20,8 @@ public class MemberCard {
     @Column(name = "member_card_id")
     private UUID cardId;
 
-    @Column(name = "client_db_id")
-    @OneToOne(cascade = {MERGE,PERSIST,REFRESH})
+    @OneToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @PrimaryKeyJoinColumn
     private ClientDB clientDB;
 
     @Override

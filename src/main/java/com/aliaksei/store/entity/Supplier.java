@@ -9,8 +9,6 @@ import lombok.AllArgsConstructor;
 import java.util.Objects;
 import java.util.UUID;
 
-import static jakarta.persistence.CascadeType.*;
-
 @Entity
 @Getter
 @NoArgsConstructor
@@ -28,8 +26,8 @@ public class Supplier {
     @Column(name = "supplier_name")
     private String supplierName;
 
-    @Column(name = "warehouse_id")
-    @OneToOne(cascade = {MERGE,PERSIST,REFRESH})
+    @OneToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @PrimaryKeyJoinColumn
     private Warehouse warehouse;
 
     @Override
