@@ -6,9 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
 import java.util.Objects;
-import java.util.UUID;
-
-import static jakarta.persistence.CascadeType.*;
 
 @Entity
 @Getter
@@ -21,13 +18,14 @@ public class Client {
     @Column(name = "client_id")
     private int clientId;
 
-    @Column(name = "member_card_id")
-    private UUID memberCardId;
+    @OneToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinColumn(name = "member_card_id", referencedColumnName = "member_card_id")
+    private MemberCard memberCard;
 
     @Column(name = "is_club_member")
     private boolean isClubMember;
 
-    @OneToOne(cascade = {MERGE, PERSIST, REFRESH}, fetch = FetchType.LAZY)
+    @OneToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.LAZY)
     @JoinColumn(name = "card_id", referencedColumnName = "card_id")
     private ProductCard productCard;
 
@@ -47,7 +45,7 @@ public class Client {
     @Override
     public String toString() {
         return "Client{" +
-                ", memberCardId=" + memberCardId +
+                ", memberCard=" + memberCard +
                 ", isClubMember=" + isClubMember +
                 '}';
     }

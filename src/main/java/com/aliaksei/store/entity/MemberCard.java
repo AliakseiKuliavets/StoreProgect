@@ -1,15 +1,14 @@
 package com.aliaksei.store.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
 import java.util.Objects;
 import java.util.UUID;
+
+import static jakarta.persistence.CascadeType.*;
 
 @Entity
 @Getter
@@ -23,7 +22,8 @@ public class MemberCard {
     private UUID cardId;
 
     @Column(name = "client_db_id")
-    private int clientDBId;
+    @OneToOne(cascade = {MERGE,PERSIST,REFRESH})
+    private ClientDB clientDB;
 
     @Override
     public boolean equals(Object o) {
@@ -42,7 +42,7 @@ public class MemberCard {
     public String toString() {
         return "MemberCard{" +
                 "cardId=" + cardId +
-                ", clientDBId=" + clientDBId +
+                ", clientDB=" + clientDB +
                 '}';
     }
 }

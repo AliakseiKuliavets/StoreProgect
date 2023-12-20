@@ -1,9 +1,6 @@
 package com.aliaksei.store.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
@@ -24,11 +21,12 @@ public class Hall {
     @Column(name = "hall_name")
     private String hallName;
 
-    @Column(name = "warehouse_id")
-    private int warehouseId;
+    @OneToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinColumn(name = "warehouse_id")
+    private Warehouse warehouse;
 
-    @Column(name = "cash_desk_id")
-    private int cashDeskId;
+    @OneToOne(mappedBy = "hall")
+    private CashDesk cashDesk;
 
 
     @Override

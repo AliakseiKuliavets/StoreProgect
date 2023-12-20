@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -32,14 +32,15 @@ public class Product {
     @Column(name = "product_discount")
     private int productDiscount;
 
-    @Column(name = "product_expity_date")
-    private Date expityDate;
+    @Column(name = "product_expiry_date")
+    private LocalDate expiryDate;
 
     @Column(name = "product_delivery_number")
     private int deliveryNumber;
 
-    @Column(name = "supplier_id")
-    private UUID supplierId;
+    @OneToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinColumn(name = "supplier_id")
+    private Supplier supplier;
 
     @ManyToOne
     @JoinColumn(name = "warehouse_id")
@@ -66,9 +67,9 @@ public class Product {
                 ", weightProduct=" + weightProduct +
                 ", productCost=" + productCost +
                 ", productDiscount=" + productDiscount +
-                ", expityDate=" + expityDate +
+                ", expiryDate=" + expiryDate +
                 ", deliveryNumber=" + deliveryNumber +
-                ", supplierId=" + supplierId +
+                ", supplier=" + supplier +
                 '}';
     }
 }

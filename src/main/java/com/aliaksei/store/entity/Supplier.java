@@ -1,9 +1,6 @@
 package com.aliaksei.store.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
@@ -11,6 +8,8 @@ import lombok.AllArgsConstructor;
 
 import java.util.Objects;
 import java.util.UUID;
+
+import static jakarta.persistence.CascadeType.*;
 
 @Entity
 @Getter
@@ -23,11 +22,15 @@ public class Supplier {
     @Column(name = "supplier_id")
     private UUID supplierId;
 
+    @OneToOne(mappedBy = "supplier")
+    private Product product;
+
     @Column(name = "supplier_name")
     private String supplierName;
 
     @Column(name = "warehouse_id")
-    private int warehouseId;
+    @OneToOne(cascade = {MERGE,PERSIST,REFRESH})
+    private Warehouse warehouse;
 
     @Override
     public boolean equals(Object o) {
@@ -46,8 +49,9 @@ public class Supplier {
     public String toString() {
         return "Supplier{" +
                 "supplierId=" + supplierId +
+                ", product=" + product +
                 ", supplierName='" + supplierName + '\'' +
-                ", warehouseId=" + warehouseId +
+                ", warehouse=" + warehouse +
                 '}';
     }
 }

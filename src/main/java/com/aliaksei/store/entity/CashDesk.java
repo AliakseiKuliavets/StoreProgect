@@ -1,9 +1,6 @@
 package com.aliaksei.store.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
@@ -22,14 +19,17 @@ public class CashDesk {
     @Column(name = "cash_desk_id")
     private UUID cashDeskId;
 
-    @Column(name = "product_id")
-    private UUID productId;
+    @OneToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinColumn(name = "product_id")
+    private Product product;
 
-    @Column(name = "client_id")
-    private UUID clientId;
+    @OneToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinColumn(name = "client_id")
+    private Client client;
 
-    @Column(name = "hall_id")
-    private UUID hallId;
+    @OneToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinColumn(name = "hall_id")
+    private Hall hall;
 
     @Override
     public boolean equals(Object o) {
@@ -48,9 +48,9 @@ public class CashDesk {
     public String toString() {
         return "CashDesk{" +
                 "cashierId=" + cashDeskId +
-                ", productId=" + productId +
-                ", clientId=" + clientId +
-                ", hallId=" + hallId +
+                ", product=" + product +
+                ", client=" + client +
+                ", hall=" + hall +
                 '}';
     }
 }

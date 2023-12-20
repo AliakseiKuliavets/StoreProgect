@@ -19,11 +19,11 @@ public class Warehouse {
     @Column(name = "warehouse_id")
     private int warehouseId;
 
-    @Column(name = "hall_id")
-    private int hallId;
-
-    @OneToMany(mappedBy = "warehouse", targetEntity = Product.class)
+    @OneToMany(mappedBy = "warehouse")
     private List<Product> products;
+
+    @OneToOne(mappedBy = "warehouse")
+    private Hall hall;
 
     @Override
     public boolean equals(Object o) {
@@ -42,7 +42,8 @@ public class Warehouse {
     public String toString() {
         return "Warehouse{" +
                 "warehouseId=" + warehouseId +
-                ", hallId=" + hallId +
+                ", products=" + products +
+                ", hall=" + hall +
                 '}';
     }
 }
