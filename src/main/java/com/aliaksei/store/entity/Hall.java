@@ -21,13 +21,12 @@ public class Hall {
     @Column(name = "hall_name")
     private String hallName;
 
-    @OneToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-    @JoinColumn(name = "warehouse_id")
-    private Warehouse warehouse;
-
     @OneToOne(mappedBy = "hall")
     private CashDesk cashDesk;
 
+    @OneToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinColumn(name = "warehouse_id", referencedColumnName = "warehouse_id")
+    private Warehouse warehouse;
 
     @Override
     public boolean equals(Object o) {

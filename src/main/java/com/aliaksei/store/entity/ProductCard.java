@@ -18,7 +18,7 @@ public class ProductCard {
     @Column(name = "card_id")
     private int productCardId;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany
     @JoinColumn(name = "product_id")
     private List<Product> products;
 }

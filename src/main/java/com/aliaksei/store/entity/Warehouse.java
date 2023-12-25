@@ -19,7 +19,7 @@ public class Warehouse {
     @Column(name = "warehouse_id")
     private int warehouseId;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "warehouse")
     private List<Product> products;
 
     @OneToOne(mappedBy = "warehouse")

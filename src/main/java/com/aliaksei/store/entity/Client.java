@@ -18,12 +18,12 @@ public class Client {
     @Column(name = "client_id")
     private int clientId;
 
+    @Column(name = "is_club_member")
+    private boolean isClubMember;
+
     @OneToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "member_card_id", referencedColumnName = "member_card_id")
     private MemberCard memberCard;
-
-    @Column(name = "is_club_member")
-    private boolean isClubMember;
 
     @OneToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.LAZY)
     @JoinColumn(name = "card_id", referencedColumnName = "card_id")

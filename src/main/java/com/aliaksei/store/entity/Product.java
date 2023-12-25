@@ -39,11 +39,11 @@ public class Product {
     private int deliveryNumber;
 
     @OneToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-    @JoinColumn(name = "supplier_id")
+    @JoinColumn(name = "supplier_id", referencedColumnName = "supplier_id")
     private Supplier supplier;
 
     @ManyToOne
-    @JoinColumn(name = "warehouse_id")
+    @JoinColumn(name = "warehouse_id", referencedColumnName = "warehouse_id")
     private Warehouse warehouse;
 
     @Override
