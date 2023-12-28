@@ -3,6 +3,9 @@ spring:
     banner-mode: off
 
   datasource:
-    url: jdbc:mysql://localhost:3306/store
+    url: jdbc:mysql://localhost:3306/storeTest
     username: root
-    password:
+    password: Ale_Mle2001
+
+  liquibase:
+    change-log: classpath:/db/changelog/changelog-master.xml

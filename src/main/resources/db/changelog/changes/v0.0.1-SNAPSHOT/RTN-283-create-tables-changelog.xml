@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet author="AliakseiKuliavets" id="create cash_desk table">
+        <preConditions onFail="CONTINUE" onFailMessage="Table cash_desk already exists">
+            <not>
+                <tableExists tableName="cash_desk"/>
+            </not>
+        </preConditions>
+        <createTable tableName="cash_desk">
+            <column name="cash_desk_id" type="varchar(36)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="product_id" type="varchar(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="client_id" type="varchar(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="hall_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="AliakseiKuliavets" id="create client table">
+        <preConditions onFail="CONTINUE" onFailMessage="Table client already exists">
+            <not>
+                <tableExists tableName="client"/>
+            </not>
+        </preConditions>
+        <createTable tableName="client">
+            <column name="client_id" type="varchar(36)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="member_card_id" type="varchar(36)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="is_club_member" type="tinyint">
+                <constraints nullable="false"/>
+            </column>
+            <!--            <column name="card_id" type="varchar(36)">-->
+            <!--                <constraints foreignKeyName="product_id" references="products(id)" nullable="false"/>-->
+            <!--            </column>-->
+            <column name="card_id" type="int">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="AliakseiKuliavets" id="create client_db table">
+        <preConditions onFail="CONTINUE" onFailMessage="Table client_db already exists">
+            <not>
+                <tableExists tableName="client_db"/>
+            </not>
+        </preConditions>
+        <createTable tableName="client_db">
+            <column name="client_db_id" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="client_first_name" type="varchar(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="client_last_name" type="varchar(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="client_phone_number" type="varchar(45)">
+                <constraints nullable="false"/>
+            </column>
+<!--            <column name="member_card_id" type="varchar(36)">-->
+<!--                <constraints nullable="false"/>-->
+<!--            </column>-->
+            <column name="client_product_discount" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="AliakseiKuliavets" id="create hall table">
+        <preConditions onFail="CONTINUE" onFailMessage="Table hall already exists">
+            <not>
+                <tableExists tableName="hall"/>
+            </not>
+        </preConditions>
+        <createTable tableName="hall">
+            <column name="hall_id" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="hall_name" type="varchar(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="warehouse_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cash_desk_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="AliakseiKuliavets" id="create member_card table">
+        <preConditions onFail="CONTINUE" onFailMessage="Table member_card already exists">
+            <not>
+                <tableExists tableName="member_card"/>
+            </not>
+        </preConditions>
+        <createTable tableName="member_card">
+            <column name="member_card_id" type="varchar(36)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="client_db_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="AliakseiKuliavets" id="create product table">
+        <preConditions onFail="CONTINUE" onFailMessage="Table product already exists">
+            <not>
+                <tableExists tableName="product"/>
+            </not>
+        </preConditions>
+        <createTable tableName="product">
+            <column name="product_id" type="varchar(36)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="product_name" type="varchar(45)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="product_weight" type="decimal(8,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_cost" type="decimal(8,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_discount" type="int">
+                <constraints nullable="true"/>
+            </column>
+            <column name="product_expiry_date" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_delivery_number" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="supplier_id" type="varchar(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="warehouse_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="AliakseiKuliavets" id="create product_card table">
+        <preConditions onFail="CONTINUE" onFailMessage="Table product_card already exists">
+            <not>
+                <tableExists tableName="product_card"/>
+            </not>
+        </preConditions>
+        <createTable tableName="product_card">
+            <column name="card_id" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="products" type="varchar(45)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="AliakseiKuliavets" id="create supplier table">
+        <preConditions onFail="CONTINUE" onFailMessage="Table supplier already exists">
+            <not>
+                <tableExists tableName="supplier"/>
+            </not>
+        </preConditions>
+        <createTable tableName="supplier">
+            <column name="supplier_id" type="varchar(36)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="supplier_name" type="varchar(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="warehouse_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="AliakseiKuliavets" id="create warehouse table">
+        <preConditions onFail="CONTINUE" onFailMessage="Table warehouse already exists">
+            <not>
+                <tableExists tableName="warehouse"/>
+            </not>
+        </preConditions>
+        <createTable tableName="warehouse">
+            <column name="warehouse_id" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="hall_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="AliakseiKuliavets" id="add foreign keys to cash_desk">
+        <addForeignKeyConstraint constraintName="fk_cash_desk_product"
+                                 baseTableName="cash_desk" baseColumnNames="product_id"
+                                 referencedTableName="product" referencedColumnNames="product_id"/>
+        <addForeignKeyConstraint constraintName="fk_cash_desk_client"
+                                 baseTableName="cash_desk" baseColumnNames="client_id"
+                                 referencedTableName="client" referencedColumnNames="client_id"/>
+        <addForeignKeyConstraint constraintName="fk_cash_desk_hall"
+                                 baseTableName="cash_desk" baseColumnNames="hall_id"
+                                 referencedTableName="hall" referencedColumnNames="hall_id"/>
+    </changeSet>
+
+    <changeSet author="AliakseiKuliavets" id="add foreign keys to client">
+        <addForeignKeyConstraint constraintName="fk_client_member_card"
+                                 baseTableName="client" baseColumnNames="member_card_id"
+                                 referencedTableName="member_card" referencedColumnNames="member_card_id"/>
+        <addForeignKeyConstraint constraintName="fk_client_product_card"
+                                 baseTableName="client" baseColumnNames="card_id"
+                                 referencedTableName="product_card" referencedColumnNames="card_id"/>
+    </changeSet>
+
+<!--    <changeSet author="AliakseiKuliavets" id="add foreign key to client_db">-->
+<!--        <addForeignKeyConstraint constraintName="fk_client_db_member_card"-->
+<!--                                 baseTableName="client_db" baseColumnNames="member_card_id"-->
+<!--                                 referencedTableName="member_card" referencedColumnNames="member_card_id"/>-->
+<!--    </changeSet>-->
+
+    <changeSet author="AliakseiKuliavets" id="add foreign key to hall">
+        <addForeignKeyConstraint constraintName="fk_hall_warehouse"
+                                 baseTableName="hall" baseColumnNames="warehouse_id"
+                                 referencedTableName="warehouse" referencedColumnNames="warehouse_id"/>
+    </changeSet>
+
+    <changeSet author="AliakseiKuliavets" id="add foreign key to member_card">
+        <addForeignKeyConstraint constraintName="fk_member_card_client_db"
+                                 baseTableName="member_card" baseColumnNames="client_db_id"
+                                 referencedTableName="client_db" referencedColumnNames="client_db_id"/>
+    </changeSet>
+
+    <changeSet author="AliakseiKuliavets" id="add foreign keys to product">
+        <addForeignKeyConstraint constraintName="fk_product_supplier"
+                                 baseTableName="product" baseColumnNames="supplier_id"
+                                 referencedTableName="supplier" referencedColumnNames="supplier_id"/>
+        <addForeignKeyConstraint constraintName="fk_product_warehouse"
+                                 baseTableName="product" baseColumnNames="warehouse_id"
+                                 referencedTableName="warehouse" referencedColumnNames="warehouse_id"/>
+    </changeSet>
+
+    <changeSet author="AliakseiKuliavets" id="add foreign key to supplier">
+        <addForeignKeyConstraint constraintName="fk_supplier_warehouse"
+                                 baseTableName="supplier" baseColumnNames="warehouse_id"
+                                 referencedTableName="warehouse" referencedColumnNames="warehouse_id"/>
+    </changeSet>
+</databaseChangeLog>

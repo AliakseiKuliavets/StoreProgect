@@ -31,8 +31,8 @@ public class ClientDB {
     @Column(name = "client_phone_number")
     private String phoneNumber;
 
-    @Column(name = "member_card_id")
-    private UUID memberCardId;
+//    @Column(name = "member_card_id")
+//    private UUID memberCardId;
 
     @Column(name = "client_product_discount")
     private int clientProductDiscount;
@@ -57,7 +57,7 @@ public class ClientDB {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                ", memberCardId=" + memberCardId +
+//                ", memberCardId=" + memberCardId +
                 ", clientProductDiscount=" + clientProductDiscount +
                 '}';
     }
