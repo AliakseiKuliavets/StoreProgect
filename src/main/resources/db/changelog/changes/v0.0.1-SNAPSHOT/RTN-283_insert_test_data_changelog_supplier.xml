@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet author="AliakseiKuliavets" id="insert test data into supplier_1 table">
+        <insert tableName="supplier">
+            <column name="supplier_id" value="0480101b-0fa4-4b13-939e-062a7a8c49e6"/>
+            <column name="supplier_name" value="Bigdarians Banana Inc."/>
+            <column name="warehouse_id" value="1"/>
+        </insert>
+    </changeSet>
+
+    <changeSet author="AliakseiKuliavets" id="insert test data into supplier_2 table">
+        <insert tableName="supplier">
+            <column name="supplier_id" value="3b64c7e1-dbf4-4611-a679-e29852659de0"/>
+            <column name="supplier_name" value="Alexander Cocos Inc."/>
+            <column name="warehouse_id" value="1"/>
+        </insert>
+    </changeSet>
+
+    <changeSet author="AliakseiKuliavets" id="insert test data into supplier_3 table">
+        <insert tableName="supplier">
+            <column name="supplier_id" value="a197d1bb-8990-4b08-ad8a-9ec55718fcb8"/>
+            <column name="supplier_name" value="Fresh Fruits Ltd."/>
+            <column name="warehouse_id" value="1"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

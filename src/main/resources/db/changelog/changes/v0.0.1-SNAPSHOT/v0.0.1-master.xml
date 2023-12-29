@@ -9,8 +9,16 @@
         https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
     <include file="db/changelog/changes/v0.0.1-SNAPSHOT/RTN-283-create-tables-changelog.xml"/>
-    <include file="db/changelog/changes/v0.0.1-SNAPSHOT/RTN-283_insert_test_data_changelog_1.xml"/>
 
-<!--    <include file="db/changelog/changes/v0.0.1-SNAPSHOT/data.sql"/>-->
+    <include file="/db/changelog/changes/v0.0.1-SNAPSHOT/RTN-283_insert_test_data_changelog_warehouse.xml"/>
+    <include file="/db/changelog/changes/v0.0.1-SNAPSHOT/RTN-283_insert_test_data_changelog_supplier.xml"/>
+    <include file="/db/changelog/changes/v0.0.1-SNAPSHOT/RTN-283_insert_test_data_changelog_product.xml"/>
+    <include file="/db/changelog/changes/v0.0.1-SNAPSHOT/RTN-283_insert_test_data_changelog_hall.xml"/>
+    <include file="/db/changelog/changes/v0.0.1-SNAPSHOT/RTN-283_insert_test_data_changelog_product_card.xml"/>
+    <include file="/db/changelog/changes/v0.0.1-SNAPSHOT/RTN-283_insert_test_data_changelog_client_db.xml"/>
+    <include file="/db/changelog/changes/v0.0.1-SNAPSHOT/RTN-283_insert_test_data_changelog_member_card.xml"/>
+    <include file="/db/changelog/changes/v0.0.1-SNAPSHOT/RTN-283_insert_test_data_changelog_client.xml"/>
+    <include file="/db/changelog/changes/v0.0.1-SNAPSHOT/RTN-283_insert_test_data_changelog_cash_desk.xml"/>
 
+    <!--    <include file="db/changelog/changes/v0.0.1-SNAPSHOT/data.sql"/>-->
 </databaseChangeLog>

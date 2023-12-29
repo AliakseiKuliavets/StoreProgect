@@ -19,7 +19,7 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="product_id" type="varchar(36)">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
             </column>
             <column name="client_id" type="varchar(36)">
                 <constraints nullable="false"/>
