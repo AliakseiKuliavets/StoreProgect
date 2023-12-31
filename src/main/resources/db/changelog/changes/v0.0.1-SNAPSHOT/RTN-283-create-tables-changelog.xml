@@ -46,9 +46,6 @@
             <column name="is_club_member" type="tinyint">
                 <constraints nullable="false"/>
             </column>
-            <!--            <column name="card_id" type="varchar(36)">-->
-            <!--                <constraints foreignKeyName="product_id" references="products(id)" nullable="false"/>-->
-            <!--            </column>-->
             <column name="card_id" type="int">
                 <constraints nullable="true"/>
             </column>
@@ -74,9 +71,9 @@
             <column name="client_phone_number" type="varchar(45)">
                 <constraints nullable="false"/>
             </column>
-<!--            <column name="member_card_id" type="varchar(36)">-->
-<!--                <constraints nullable="false"/>-->
-<!--            </column>-->
+            <column name="member_card_id" type="varchar(36)">
+                <constraints nullable="true"/>
+            </column>
             <column name="client_product_discount" type="int">
                 <constraints nullable="false"/>
             </column>

@@ -21,5 +21,4 @@
     <include file="/db/changelog/changes/v0.0.1-SNAPSHOT/RTN-283_insert_test_data_changelog_client.xml"/>
     <include file="/db/changelog/changes/v0.0.1-SNAPSHOT/RTN-283_insert_test_data_changelog_cash_desk.xml"/>
 
-    <!--    <include file="db/changelog/changes/v0.0.1-SNAPSHOT/data.sql"/>-->
 </databaseChangeLog>
