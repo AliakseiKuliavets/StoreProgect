@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet author="AliakseiKuliavets" id="drop cash_desk table">
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="cash_desk"/>
+        </preConditions>
+        <rollback>
+            <dropTable tableName="cash_desk"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet author="AliakseiKuliavets" id="drop client table">
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="client"/>
+        </preConditions>
+        <rollback>
+            <dropTable tableName="client"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet author="AliakseiKuliavets" id="drop client_db table">
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="client_db"/>
+        </preConditions>
+        <rollback>
+            <dropTable tableName="client_db"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet author="AliakseiKuliavets" id="drop hall table">
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="hall"/>
+        </preConditions>
+        <rollback>
+            <dropTable tableName="hall"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet author="AliakseiKuliavets" id="drop member_card table">
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="member_card"/>
+        </preConditions>
+        <rollback>
+            <dropTable tableName="member_card"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet author="AliakseiKuliavets" id="drop product table">
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="product"/>
+        </preConditions>
+        <rollback>
+            <dropTable tableName="product"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet author="AliakseiKuliavets" id="drop product_card table">
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="product_card"/>
+        </preConditions>
+        <rollback>
+            <dropTable tableName="product_card"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet author="AliakseiKuliavets" id="drop supplier table">
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="supplier"/>
+        </preConditions>
+        <rollback>
+            <dropTable tableName="supplier"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet author="AliakseiKuliavets" id="drop warehouse table">
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="warehouse"/>
+        </preConditions>
+        <rollback>
+            <dropTable tableName="warehouse"/>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>
