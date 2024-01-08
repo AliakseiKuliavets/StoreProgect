@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Optional;
-
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/product")
@@ -17,8 +15,8 @@ public class ProductController {
 
     private final ProductService productService;
 
-    @GetMapping("{id}")
-    public Optional<Product> getProductById(@PathVariable("id") String id) {
+    @GetMapping("/{product_id}")
+    public Product getProductById(@PathVariable("product_id") String id) {
         return productService.getProductId(id);
     }
 }
