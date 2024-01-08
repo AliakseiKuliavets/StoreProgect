@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/client")
+@RequestMapping("/clientdb")
 public class ClientDBController {
 
     private final ClientDBService clientDBService;
 
-    @GetMapping("/acc/{id}")
-    public ClientDB getClientById(@PathVariable("id") String id) {
-        return clientDBService.getClientById(id);
+    @GetMapping("/db/{id}")
+    public ClientDB getClientDBById(@PathVariable("id") String id) {
+        return clientDBService.getClientDBById(id);
     }
 }

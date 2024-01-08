@@ -1,24 +1,22 @@
 package com.aliaksei.store.controller.page;
 
-import com.aliaksei.store.entity.Product;
-import com.aliaksei.store.service.inter.ProductService;
+import com.aliaksei.store.entity.Client;
+import com.aliaksei.store.service.inter.ClientService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Optional;
-
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/product")
-public class ProductController {
+@RequestMapping("/client")
+public class ClientController {
 
-    private final ProductService productService;
+    private final ClientService clientService;
 
     @GetMapping("{id}")
-    public Optional<Product> getProductById(@PathVariable("id") String id) {
-        return productService.getProductId(id);
+    public Client getClientById(@PathVariable("id") String id) {
+        return clientService.getClientById(id);
     }
 }

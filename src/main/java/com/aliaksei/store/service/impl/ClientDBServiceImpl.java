@@ -12,7 +12,7 @@ public class ClientDBServiceImpl implements ClientDBService {
 
     private final ClientDBRepository clientDBRepository;
     @Override
-    public ClientDB getClientById(String id) {
+    public ClientDB getClientDBById(String id) {
         return clientDBRepository.findById(Integer.parseInt(id)).orElse(null);
     }
 }
