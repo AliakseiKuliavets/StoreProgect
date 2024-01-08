@@ -15,7 +15,7 @@ public class ClientController {
 
     private final ClientService clientService;
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public Client getClientById(@PathVariable("id") String id) {
         return clientService.getClientById(id);
     }
