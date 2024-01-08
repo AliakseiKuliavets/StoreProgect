@@ -21,7 +21,7 @@
             <column name="product_id" type="varchar(36)">
                 <constraints nullable="true"/>
             </column>
-            <column name="client_id" type="varchar(36)">
+            <column name="client_id" type="int">
                 <constraints nullable="false"/>
             </column>
             <column name="hall_id" type="int">
@@ -37,7 +37,7 @@
             </not>
         </preConditions>
         <createTable tableName="client">
-            <column name="client_id" type="varchar(36)">
+            <column name="client_id" type="int">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="member_card_id" type="varchar(36)">
