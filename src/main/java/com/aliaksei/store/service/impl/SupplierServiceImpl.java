@@ -6,6 +6,7 @@ import com.aliaksei.store.service.inter.SupplierService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -16,6 +17,11 @@ public class SupplierServiceImpl implements SupplierService {
 
     @Override
     public Supplier getSupplierById(String id) {
-        return supplierRepository.getReferenceById(UUID.fromString(id));
+        return supplierRepository.getSuppliersBySupplierId(UUID.fromString(id));
+    }
+
+    @Override
+    public List<Supplier> getAllSupplier(){
+        return supplierRepository.getAllSupplier();
     }
 }

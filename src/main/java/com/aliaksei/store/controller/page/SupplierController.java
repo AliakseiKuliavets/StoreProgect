@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/supplier")
@@ -18,5 +20,10 @@ public class SupplierController {
     @GetMapping("/{supplier_id}")
     public Supplier getSupplierById(@PathVariable("supplier_id") String id) {
         return supplierService.getSupplierById(id);
+    }
+
+    @GetMapping("/all")
+    public List<Supplier> getAllSupplier(){
+        return supplierService.getAllSupplier();
     }
 }
