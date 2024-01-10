@@ -15,6 +15,7 @@ public class ClientDBController {
 
     private final ClientDBService clientDBService;
 
+    // работает
     @GetMapping("/{id}")
     public ClientDB getClientDBById(@PathVariable("id") String id) {
         return clientDBService.getClientDBById(id);
