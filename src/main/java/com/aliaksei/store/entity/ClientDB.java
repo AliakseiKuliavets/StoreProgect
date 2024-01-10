@@ -1,16 +1,12 @@
 package com.aliaksei.store.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import jakarta.persistence.Id;
-import jakarta.persistence.Column;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import lombok.Setter;
 
 import java.util.Objects;
-import java.util.UUID;
 
 @Entity
 @Getter
@@ -33,8 +29,9 @@ public class ClientDB {
     @Column(name = "client_phone_number")
     private String phoneNumber;
 
-    @Column(name = "member_card_id")
-    private UUID memberCardId;
+    @OneToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinColumn(name = "member_card_id", referencedColumnName = "member_card_id")
+    private MemberCard memberCard;
 
     @Column(name = "client_product_discount")
     private int clientProductDiscount;
@@ -59,7 +56,7 @@ public class ClientDB {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                ", memberCardId=" + memberCardId +
+                ", memberCardId=" + memberCard +
                 ", clientProductDiscount=" + clientProductDiscount +
                 '}';
     }

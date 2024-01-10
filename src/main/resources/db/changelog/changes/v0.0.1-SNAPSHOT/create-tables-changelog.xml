@@ -15,10 +15,10 @@
             </not>
         </preConditions>
         <createTable tableName="cash_desk">
-            <column name="cash_desk_id" type="varchar(36)">
+            <column name="cash_desk_id" type="uuid">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="product_id" type="varchar(36)">
+            <column name="product_id" type="uuid">
                 <constraints nullable="true"/>
             </column>
             <column name="client_id" type="int">
@@ -40,7 +40,7 @@
             <column name="client_id" type="int">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="member_card_id" type="varchar(36)">
+            <column name="member_card_id" type="uuid">
                 <constraints nullable="true"/>
             </column>
             <column name="is_club_member" type="tinyint">
@@ -71,7 +71,7 @@
             <column name="client_phone_number" type="varchar(45)">
                 <constraints nullable="false"/>
             </column>
-            <column name="member_card_id" type="varchar(36)">
+            <column name="member_card_id" type="uuid">
                 <constraints nullable="true"/>
             </column>
             <column name="client_product_discount" type="int">
@@ -109,7 +109,7 @@
             </not>
         </preConditions>
         <createTable tableName="member_card">
-            <column name="member_card_id" type="varchar(36)">
+            <column name="member_card_id" type="uuid">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="client_db_id" type="int">
@@ -125,7 +125,7 @@
             </not>
         </preConditions>
         <createTable tableName="product">
-            <column name="product_id" type="varchar(36)">
+            <column name="product_id" type="uuid">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="product_name" type="varchar(45)">
@@ -146,7 +146,7 @@
             <column name="product_delivery_number" type="int">
                 <constraints nullable="false"/>
             </column>
-            <column name="supplier_id" type="varchar(36)">
+            <column name="supplier_id" type="uuid">
                 <constraints nullable="false"/>
             </column>
             <column name="warehouse_id" type="int">
@@ -178,7 +178,7 @@
             </not>
         </preConditions>
         <createTable tableName="supplier">
-            <column name="supplier_id" type="varchar(36)">
+            <column name="supplier_id" type="uuid">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="supplier_name" type="varchar(45)">
